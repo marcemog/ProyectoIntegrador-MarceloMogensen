@@ -1,0 +1,23 @@
+.row {
+    padding: 20px;
+    background-color: #11243a;
+    color: white;
+}
+
+.container {
+    width: auto;
+}
+
+.parte1, .parte2 { 
+    display: inline-block;
+    text-align: justify; 
+}
+
+h1 {
+    text-align: center;
+    padding: 30px;
+}
+
+img {
+    box-shadow: 20px 20px 40px black;
+}
