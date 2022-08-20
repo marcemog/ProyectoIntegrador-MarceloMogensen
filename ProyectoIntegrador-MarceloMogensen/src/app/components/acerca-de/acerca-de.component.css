@@ -8,29 +8,41 @@ div {
     color: white;
 }
 
+#nombre{
+    font-weight: bold;
+    margin-top:20%;
+    font-size:40px;
+}
+
+.acerca-de {
+    margin-top:5%;
+}
+
 @media (min-width: 576px) {
     #fotoperfil{
-        position: absolute;
-        border-radius:100%;
+        position: static;
+        border-radius:50%;
         box-shadow: 5px 5px 5px black;
-        width: 15%;
+        width: 100%;
         left: 2%;
-        top: 750px;
+        margin-top: -100px;
     }
+  
 }
 
 @media (max-width: 576px) {
     #fotoperfil{
-        position: absolute;
+        position: static;
         border-radius:100%;
         box-shadow: 5px 5px 5px black;
         width: 30%;
-        left: 33%;
-        top:630px;
+        left: 35%;
+        
+        margin-top: -70px;
     }
-}
-
-#nombre {
-    font-weight: bold;
-    margin-top:20%;
+    #nombre{
+        font-weight: bold;
+        margin-top:10%;
+        font-size:30px;
+    }
 }
