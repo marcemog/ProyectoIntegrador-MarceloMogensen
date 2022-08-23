@@ -4,6 +4,7 @@ import com.portfolio.marce.Entity.Persona;
 import com.portfolio.marce.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-
 public class PersonaController {
     @Autowired IPersonaService ipersonaservice;
     
@@ -25,12 +25,14 @@ public class PersonaController {
         return ipersonaservice.getPersona();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona){
         ipersonaservice.savePersona(persona);
         return "La persona ha sido creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
        ipersonaservice.deletePersona(id);
@@ -38,6 +40,7 @@ public class PersonaController {
     }
     
     //url: puerto/personas/editar/id?nombre & apellido & img
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                               @RequestParam("nombre") String nuevoNombre,
@@ -53,12 +56,14 @@ public class PersonaController {
        return persona;
     }
     
+    /*
     @GetMapping("/personas/traer/perfil")
     public Persona findPersona(){
         return ipersonaservice.findPersona((long)1);
     }
-    
+    */
 
+  
   
     }
     
