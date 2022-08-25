@@ -1,7 +1,11 @@
 .row {
     padding: 40px;
+    color: white;
 }
 
+.table{
+    color: white;
+}
 div {
     background-color: #11243a;
     color: white;
