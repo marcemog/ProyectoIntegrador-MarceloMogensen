@@ -1,3 +1,7 @@
+.table{
+    color: white;
+    border-color:#11243a ;
+}
 .row {
     padding: 20px;
     background-color: #11243a;
@@ -20,4 +24,5 @@ h1 {
 
 img {
     box-shadow: 20px 20px 40px black;
+    size: 5%;
 }

@@ -20,6 +20,8 @@ public class dtoEducacion {
         this.descripcionEdu = descripcionEdu;
     }
 
+    
+    //getters y setters
     public String getNombreEdu() {
         return nombreEdu;
     }

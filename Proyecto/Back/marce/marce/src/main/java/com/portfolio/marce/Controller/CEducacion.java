@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("educ")
+@RequestMapping("/educ")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
     
@@ -52,9 +52,9 @@ public class CEducacion {
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoedu) {
         //validacion existencia de ID
         if (!educacionServ.existsById(id)) {
-            return new ResponseEntity(new Mensaje("ID no existente"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("ID no existente"), HttpStatus.NOT_FOUND);
         }
-        //comparacion nombres de exp
+        //comparacion nombres de educacion
         if (educacionServ.existsByNombreEdu(dtoedu.getNombreEdu()) && educacionServ.getByNombreEdu(dtoedu.getNombreEdu()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("Educación ya existente"), HttpStatus.BAD_REQUEST);
         }
@@ -76,7 +76,7 @@ public class CEducacion {
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         //validacion existencia de ID
         if (!educacionServ.existsById(id)) {
-            return new ResponseEntity(new Mensaje("ID no existente"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("ID no existente"), HttpStatus.NOT_FOUND);
         }
 
         educacionServ.delete(id);

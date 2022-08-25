@@ -26,8 +26,8 @@ public class EducacionServ {
         return rEducacion.findByNombreEdu(nombreEdu);
     }
     
-    public void save (Educacion expe){
-        rEducacion.save(expe);
+    public void save (Educacion edu){
+        rEducacion.save(edu);
     }
     
     public void delete(int id){
