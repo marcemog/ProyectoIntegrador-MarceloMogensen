@@ -1,0 +1,19 @@
+<div class="container" *ngIf="ski">
+    <div class="row">
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombrePro">Nombre de la Habilidad</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="ski.nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcionPro">Porcentaje aproximado de la habilidad</label>
+                <input type="text" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="ski.porcentaje" required>
+            </div>
+            <div class="form-group">
+                <label for="imgPro">Logo de la Habilidad</label>
+                <input type="text" class="form-control" id="urlLogo" name="urlLogo" [(ngModel)]="ski.urlLogo" required>
+            </div>
+            <button class="btn btn-success">Actualizar habilidad</button>
+        </form>
+    </div>
+</div>
