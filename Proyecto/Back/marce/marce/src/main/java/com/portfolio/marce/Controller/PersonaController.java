@@ -5,7 +5,6 @@ import com.portfolio.marce.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,12 +44,17 @@ public class PersonaController {
     public Persona editPersona(@PathVariable Long id,
                               @RequestParam("nombre") String nuevoNombre,
                               @RequestParam("apellido") String nuevoApellido,
-                              @RequestParam("img") String nuevaImg){
+                              @RequestParam("img") String nuevaImg,
+                              @RequestParam("formacion") String nuevaFormacion,
+                              @RequestParam("descripcion") String nuevaDescripcion){
+        
        Persona persona =  ipersonaservice.findPersona(id);
        
        persona.setNombre(nuevoNombre);
        persona.setApellido(nuevoApellido);
        persona.setImg(nuevaImg);
+       persona.setFormacion(nuevaFormacion);
+       persona.setDescripcion(nuevaDescripcion);
        
        ipersonaservice.savePersona(persona);
        return persona;
