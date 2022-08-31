@@ -2,6 +2,7 @@ package com.portfolio.marce.Interface;
 
 import com.portfolio.marce.Entity.Persona;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface IPersonaService {
@@ -14,10 +15,14 @@ public interface IPersonaService {
     
     
     //eliminar persona por id
-    public void deletePersona(Long id);
+    public void deletePersona(int id);
     
     //buscar persona por id
-    public Persona findPersona(Long id);
+    public Persona findPersona(int id);
+    
+    public Optional<Persona> getOne(int id);
+    
+    public boolean existsById(int id);
     
     
 }

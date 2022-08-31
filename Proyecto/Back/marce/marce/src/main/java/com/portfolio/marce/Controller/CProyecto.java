@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,7 @@ public class CProyecto {
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") int id) {
         if (!proyectoServ.existsById(id)) {
@@ -42,6 +44,7 @@ public class CProyecto {
         return new ResponseEntity(pro, HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtopro) {
         if (StringUtils.isBlank(dtopro.getNombrePro())) {
@@ -57,6 +60,7 @@ public class CProyecto {
         return new ResponseEntity(new Mensaje("Proyecto agregado"), HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtopro) {
         //validacion existencia de ID
@@ -81,6 +85,7 @@ public class CProyecto {
 
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         //validacion existencia de ID

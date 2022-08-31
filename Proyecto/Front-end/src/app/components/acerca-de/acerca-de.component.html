@@ -12,4 +12,7 @@
             <p>{{persona.descripcion}}</p>
         </span>
     </div>
+    <div *ngIf="isLogged"> <button class="btn btn-success" routerLink="/editper/{{persona.id}}" >
+        <i class="bi bi-pencil-square"></i>EDITAR</button> 
+    </div>
 </div>

@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,7 @@ public class CSkills {
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoSkills dtoski) {
         if (StringUtils.isBlank(dtoski.getNombre())) {
@@ -48,6 +50,7 @@ public class CSkills {
         return new ResponseEntity(new Mensaje("Habilidad agregada"), HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoSkills dtoski) {
         //validacion existencia de ID
@@ -73,6 +76,7 @@ public class CSkills {
 
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         //validacion existencia de ID
@@ -85,6 +89,7 @@ public class CSkills {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Skills> getById(@PathVariable("id") int id) {
         if (!skillsServ.existsById(id)) {

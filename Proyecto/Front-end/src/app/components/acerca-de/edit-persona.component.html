@@ -1,0 +1,27 @@
+<div class="container" *ngIf="pers">
+    <div class="row">
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre de la Persona</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="pers.nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido de la Persona</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="pers.apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="img">Imagen de la Persona</label>
+                <input type="text" class="form-control" id="img" name="img" [(ngModel)]="pers.img" required>
+            </div>
+            <div class="form-group">
+                <label for="formacion">Formación de la Persona</label>
+                <input type="text" class="form-control" id="formacion" name="formacion" [(ngModel)]="pers.formacion" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción de la Persona</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="pers.descripcion" required>
+            </div>
+            <button class="btn btn-success">Actualizar Persona</button>
+        </form>
+    </div>
+</div>

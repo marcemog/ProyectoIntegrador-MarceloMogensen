@@ -23,6 +23,7 @@ import { NewProyectoComponent } from './components/proyectos/new-proyecto.compon
 import { EditProyectoComponent } from './components/proyectos/edit-proyecto.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditPersonaComponent } from './components/acerca-de/edit-persona.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
     NewProyectoComponent,
     EditProyectoComponent,
     EditSkillComponent,
-    NewSkillComponent
+    NewSkillComponent,
+    EditPersonaComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
     HttpClientModule,
   ],
   providers: [
-    interceptorProvider
+    interceptorProvider,
   ],
   bootstrap: [AppComponent]
 })
