@@ -8,10 +8,20 @@ div {
     color: white;
 }
 
+.descripcion {
+    text-align: justify;
+    padding: 10px;
+}
+
 #nombre{
     font-weight: bold;
     margin-top:20%;
     font-size:40px;
+}
+
+.formacion {
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .acerca-de {

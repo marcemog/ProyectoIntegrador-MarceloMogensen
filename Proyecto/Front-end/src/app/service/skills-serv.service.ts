@@ -8,7 +8,7 @@ import { Skills } from '../model/skills';
 })
 export class SkillsServService {
 
-  skiURL= 'http://localhost:8080/skills/'
+  skiURL= 'https://backend-marce.herokuapp.com/skills/'
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Skills[]>{

@@ -3,8 +3,12 @@
     top: 0;
     left: 0;
     position:fixed;
+    background-color: #05101c;
 }
 
+#general {
+    background-color: #05101c;
+}
 .container {
     
     display: flex;
